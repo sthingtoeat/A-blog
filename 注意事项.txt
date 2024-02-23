@@ -1,0 +1,6 @@
+控制台输入
+yarn docs:dev
+启动服务器,端口号默认为8080
+
+与github关联，可以先在github里面新建仓库，再从仓库克隆下来，例如
+git clone https://github.com/sthingtoeat/A-blog.git
