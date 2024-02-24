@@ -4,3 +4,28 @@ yarn docs:dev
 
 与github关联，可以先在github里面新建仓库，再从仓库克隆下来，例如
 git clone https://github.com/sthingtoeat/A-blog.git
+
+需要提交时
+git status
+git add .
+可以正常使用
+
+但是
+git commit -m"233"
+
+需要验证邮箱和用户名，如果有多个用户，去掉--global
+git config --global user.name "xxx"			设置全局用户名，信息记录在~/.gitconfig文件中,如果有多个项目需要管理则去掉--global
+
+git config --global user.email "xxx@xxx.com"		设置全局邮箱地址，信息记录在~/.gitconfig文件中,如果有多个项目需要管理则去掉--global
+
+此时 
+
+git commit -m"233"
+
+已经可以使用
+
+最后
+git push
+
+如果你登录了github，此时会出现一个登录授权的页面，同意即可
+
