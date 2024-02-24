@@ -1,4 +1,11 @@
 module.exports = {
+    title: "Haruka的博客",    //导航栏上的标题
+    description: "写个博客记录生活",  //以mata标签被渲染到html中head的标签内
+    head: [
+      ['link', {rel: 'icon', href: '/favicon.ico'}],      //网站icon,地址默认为public
+      ['meta', {name: 'author', content: '香饽饽仙贝'}],
+      ['meta', {name: 'keywords', content: '学习vuepress'}]
+    ],
     themeConfig: {
       logo: '/assets/img/logo.png',
       nav: [
