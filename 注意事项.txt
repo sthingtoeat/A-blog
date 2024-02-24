@@ -29,3 +29,14 @@ git push
 
 如果你登录了github，此时会出现一个登录授权的页面，同意即可
 
+----------------------------------------------------------------------------
+VuePress在Node.js高版本报digital envelope routines::unsupported错误的解决方法
+在package.json里面中的scripts里面修改成这样即可执行
+
+ "docs:dev": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
+ "docs:build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
+-----------------------------------------------------------------------------
+
+如果delopy的时候问你who you are,那么在deploy.sh文件里面在git commit 之前按照最上面验证邮箱和用户名的指令即可
+    
+

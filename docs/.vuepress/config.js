@@ -1,7 +1,8 @@
 const moment = require('moment'); //引用插件，使用前需要在项目目录下使用yarn add moment 下载
 
 module.exports = {
-    title: "Haruka的博客",    //导航栏上的标题
+  base: "/A-blog/",           //主页地址不再是默认的localhost:8080,而是localhost:8080/A-blog/
+  title: "Haruka的博客",    //导航栏上的标题
     description: "写个博客记录生活",  //以mata标签被渲染到html中head的标签内
     head: [
       ['link', {rel: 'icon', href: '/favicon.ico'}],      //网站icon,地址默认为public
