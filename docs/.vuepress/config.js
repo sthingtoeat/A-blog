@@ -1,3 +1,5 @@
+const moment = require('moment'); //引用插件，使用前需要在项目目录下使用yarn add moment 下载
+
 module.exports = {
     title: "Haruka的博客",    //导航栏上的标题
     description: "写个博客记录生活",  //以mata标签被渲染到html中head的标签内
@@ -6,7 +8,21 @@ module.exports = {
       ['meta', {name: 'author', content: '香饽饽仙贝'}],
       ['meta', {name: 'keywords', content: '学习vuepress'}]
     ],
+    plugins: [              //这里是插件，别放进themeConfig里面
+      [
+        '@vuepress/last-updated',
+        {
+          transformer: (timestamp, lang) => {
+                                                
+            moment.locale(lang)                 // 不要忘了安装 moment
+            // moment.locale("zh-cn");             //可以将英文转化为中文，使用时请禁用上一条代码，并删除lang
+            return moment(timestamp).format("LLLL")  //其他格式请去moment官网寻找
+          }
+        }
+      ]
+    ],
     themeConfig: {
+      lastUpdated: 'updateDate',        //以git上传的时间为标准,但是格式改不了，需要插件
       logo: '/assets/img/logo.png',
       nav: [
         { text: 'Home', link: '/' },
