@@ -7,7 +7,15 @@ module.exports = {
     head: [
       ['link', {rel: 'icon', href: '/favicon.ico'}],      //网站icon,地址默认为public
       ['meta', {name: 'author', content: '香饽饽仙贝'}],
-      ['meta', {name: 'keywords', content: '学习vuepress'}]
+      ['meta', {name: 'keywords', content: '学习vuepress'}],
+      ['link', { rel: 'manifest', href: '/manifest.json' }],
+      ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+      ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+      ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+      ['link', { rel: 'apple-touch-icon', href: '/icons/icon512_rounded.png' }],
+      ['link', { rel: 'mask-icon', href: '/icons/icon512_maskable.png', color: '#3eaf7c' }],
+      ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
+      ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
     plugins: [              //这里是插件，别放进themeConfig里面
       [
@@ -18,6 +26,16 @@ module.exports = {
             moment.locale(lang)                 // 不要忘了安装 moment
             // moment.locale("zh-cn");             //可以将英文转化为中文，使用时请禁用上一条代码，并删除lang
             return moment(timestamp).format("LLLL")  //其他格式请去moment官网寻找
+          }
+        }
+      ],
+      [ 
+        '@vuepress/pwa', 
+        {
+          serviceWorker: true,
+          updatePopup: {
+            message: "New content is available.",
+            buttonText: "Refresh"
           }
         }
       ]
