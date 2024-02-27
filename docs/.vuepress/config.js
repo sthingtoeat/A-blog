@@ -33,7 +33,7 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
-        '@vssue/vuepress-plugin-vssue': {
+        '@vssue/vuepress-plugin-vssue': {       //记得安装这个插件
           // 设置 `platform` 而不是 `api`
           platform: 'github-v4',
     
@@ -44,6 +44,7 @@ module.exports = {
           clientSecret: 'f728ac46b50aaa4dc0b4e39dfc23d9c7c10823e1', //这东西只生成一次，忘记了就得重置
           autoCreateIssue:true,                 //自动创建评论(create issue)，不用手点了
         },
+        '@vuepress/back-to-top':true,
       },
     themeConfig: {
       lastUpdated: 'updateDate',        //以git上传的时间为标准,但是格式改不了，需要插件
