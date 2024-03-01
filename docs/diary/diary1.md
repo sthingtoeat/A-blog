@@ -1,14 +1,17 @@
 ## 日记1(测试)
 
-1.去ac Terminal 里面 输入 ssh root@**.**	(公网ip地址)
+1.去ac Terminal 里面 输入 
+    ssh root@**.**	(公网ip地址)
 
 2.成功进入服务器以后创建用户acs 
-   输入			adduser acs     
+   输入
+    adduser acs     
    然后设置密码
    设置完以后就一路回车，最后输入Y就可以了
 
 3.给用户acs添加sudo权限
-  输入                     usermod -aG sudo acs
+  输入 
+    usermod -aG sudo acs
   控制台不会有任何反应，输入的时候需要注意是否输错
 
 4.传AC Terminal的一些相关配置
@@ -16,69 +19,80 @@
    会显示****.****.*** closed
    此时的状态是你刚刚建立的用户名 acs@*****:~$ 
    设置一个免密登录
-   输入   		vim .ssh/config
+   输入   		
+    vim .ssh/config
    按i键切换为输入模式，然后在里面输入(按SHIFT + INSERT 可以进行粘贴)
-   Host ****					(随便设置一个名,用于免密登录的名)
-          HostName *****			(服务器公网ip地址) 
-          User acs				(你刚刚创建的用户名的名)
+    Host ****					//(随便设置一个名,用于免密登录的名)
+    HostName *****			//(服务器公网ip地址) 
+    User acs				//(你刚刚创建的用户名的名)
    按ESC退出输入模式
-   输入			:wq
+   输入			
+    :wq
    保存并退出，返回到刚才进入config文件时的界面				
-   输入                    ssh-copy-id ****（刚刚你在config里面设置的Host名）
+   输入                    
+    ssh-copy-id ****        //（刚刚你在config里面设置的Host名）
    然后输入你acs用户的密码
    输完以后，显示Now try logging into the machine,with:"ssh '*******'" ...
    这时候免密登录设置就完成了
    退出（关了这个管理器）
    重新打开AC Terminal
-   输入   scp .bashrc .vimrc .tmux.conf ****(你设置的Host名):     这个冒号别忘了，然后回车
+   输入   
+    scp .bashrc .vimrc .tmux.conf ****(你设置的Host名):     //这个冒号别忘了，然后回车
    会弹出下载完成的信息
    然后输入ssh ****（你设置的Host名）,如果登录成功了，说明免密登录正确了
    在服务器里面     （如果上面ssh登录测试完成了，那么就表示在服务器里面了）
    更新一下apt-get
-   输入                    sudo apt-get update
+   输入                    
+    sudo apt-get update
    然后输入acs的密码
    会弹出一堆东西正在下载,等一会，看到....Done说明下载完了
    然后装一下tmux
-   输入                     sudo apt-get install tmux
+   输入                     
+    sudo apt-get install tmux
    显示 ...Done就好了
-   输入                     tmux
+   输入                     
+    tmux
    进入tmux             (按CTRL + D可以退出tmux)
 
 5.配置docker
    打开网页https://docs.docker.com/engine/install/ubuntu/
    按照里面的步骤
    在tmux里面
-   输入			  sudo apt-get update
+   输入			  
+    sudo apt-get update
    输入acs的密码
    等待下载完成
    ......Done 以后说明下载完成
-   输入                      sudo apt-get install \
+   输入                      
+    sudo apt-get install \
     ca-certificates \
     curl \
     gnupg \
     lsb-release
    (这里的话，直接复制粘贴就可以了)
    
-    输入                      sudo mkdir -m 0755 -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    输入                      
+     sudo mkdir -m 0755 -p /etc/apt/keyringscurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     (一样复制粘贴，不要复制前面的空格)
     这里回车以后不会有任何信息弹出
 
-    输入                      echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    这里回车以后也不会有任何信息弹出  
+    输入                      
+     echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   这里回车以后也不会有任何信息弹出  
 
-   输入                     sudo apt-get update
+   输入                     
+     sudo apt-get update
    更新一下
-   输入                     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   输入                     
+     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
    过会输入Y,然后等待就好了
    完事以后，输入    docker
    可以看到docker 的有关内容，说明安装成功了
 
 6.给docker配置一下sudo权限
    (依然在tmux里面)
-   输入 sudo usermod -aG docker $USER
+   输入 
+    sudo usermod -aG docker $USER
    没有任何信息会弹出
    按CTRL + D , 退出tmux,
    再按CTRL+D , 退出服务器
