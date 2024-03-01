@@ -1,4 +1,5 @@
 const moment = require('moment'); //引用插件，使用前需要在项目目录下使用yarn add moment 下载
+const secret = require("./secret")
 
 module.exports ={              //这里是插件，别放进themeConfig里面，以前的插件形式为babel形式，现改为对象的形式，注意区别
     '@vuepress/last-updated':{
@@ -23,8 +24,8 @@ module.exports ={              //这里是插件，别放进themeConfig里面，
       // 其他的 Vssue 配置
       owner: 'sthingtoeat',                 //你github的名
       repo: 'A-blog',                       //你这个项目的仓库名
-      clientId: '4e7f48211858da0895e9',
-      clientSecret: 'f728ac46b50aaa4dc0b4e39dfc23d9c7c10823e1', //这东西只生成一次，忘记了就得重置
+      clientId: secret.clientId,
+      clientSecret: secret.clientSecret, //这东西只生成一次，忘记了就得重置
       autoCreateIssue:true,                 //自动创建评论(create issue)，不用手点了
     },
     '@vuepress/back-to-top':true,           //yarn add -D @vuepress/plugin-back-to-top
