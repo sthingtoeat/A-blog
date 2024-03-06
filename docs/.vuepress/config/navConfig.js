@@ -2,6 +2,7 @@ module.exports=[
     { text: 'Home', link: '/' },
     { text: '介绍', link: '/introduce/about' },
     { text: '日记', link: '/diary/diary1' },
+    { text: '学习笔记', link: '/studynote/note1'},
     { text: 'External', link: 'https://video.gincode.icu' },
     {
       text: 'Languages',
