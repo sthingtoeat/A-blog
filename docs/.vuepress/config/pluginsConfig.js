@@ -29,4 +29,20 @@ module.exports ={              //这里是插件，别放进themeConfig里面，
       autoCreateIssue:true,                 //自动创建评论(create issue)，不用手点了
     },
     '@vuepress/back-to-top':true,           //yarn add -D @vuepress/plugin-back-to-top
+    '@vuepress/medium-zoom': {
+      selector: 'img.custom', //img往后可加类名
+      // medium-zoom options here
+      // See: https://github.com/francoischalifour/medium-zoom#options
+      options: {    //这里改css样式
+      
+      }
+    },
+    "vuepress-plugin-auto-sidebar":{//这个插件使用请参考:https://shanyuhai123.github.io/vuepress-plugin-auto-sidebar/zh/features/plugin-options.html#%E6%A6%82%E8%A7%88
+      title:{
+        map:{
+          "/studynote/":"学习笔记",//两边都有斜杠，不要漏掉
+          "/diary/":"奇奇怪怪的事"
+        }
+      }
+    },
   }

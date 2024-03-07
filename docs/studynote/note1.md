@@ -1,5 +1,5 @@
 ---
-title: vuepress学习
+title: vuepress
 ---
 ## 写在前面
 
