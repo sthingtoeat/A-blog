@@ -33,6 +33,7 @@
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "countup.js": "^2.8.0",
     "moment": "^2.30.1",
+    "prismjs": "^1.29.0",
     "vuepress-plugin-auto-sidebar": "^2.3.2"
   }
 }

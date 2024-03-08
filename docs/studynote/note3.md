@@ -11,12 +11,12 @@ vuepress自带的侧边栏其实也能用，但是这个插件还能对侧边栏
 ## 1.安装
 
 使用如下命令进行安装
-```
+```sh
 npm i vuepress-plugin-auto-sidebar -D
 ```
 
 然后在pluginsConfig里面添加
-```
+```js
 "vuepress-plugin-auto-sidebar":{},
 ```
 
@@ -28,7 +28,7 @@ npm i vuepress-plugin-auto-sidebar -D
 
 ## 3.排序规则
 
-```
+```js
 module.exports = {
   plugins: {
     "vuepress-plugin-auto-sidebar": {
