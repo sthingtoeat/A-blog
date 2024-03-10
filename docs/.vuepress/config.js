@@ -12,5 +12,8 @@ module.exports = {
       lastUpdated: 'updateDate',        //以git上传的时间为标准,但是格式改不了，需要插件
       logo: '/assets/img/logo.png',
       nav: navConfig,
+    },
+    markdown:{
+      lineNumbers:false,    //显示/关闭行号
     }
   }
